@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Factions - Aeros</title>
+    <link rel="stylesheet" href="shared.css">
+    <link rel="stylesheet" href="subfactions.css">
+</head>
+<body>
+    <header> <!-- Header Section -->
+        <div class="header-container">
+            <a href = "index.html"><img src="A2_Logo.png" class="left-logo-img" alt="Labyrinth Logo"></a> <!-- Logo and Link to Homepage -->
+            <button class="hamburger" aria-label="Toggle navigation" tabindex="0">☰</button> <!-- Hamburger Menu Button -->
+            <nav class="center-menu">
+                <a href="factions.html">Factions</a> <!-- Link to Factions Page -->
+                <a href="news.html">News</a> <!-- Link to News Page -->
+                <a href="about.html">About</a> <!-- Link to About Page -->
+            </nav>
+            <img src="Rooster_Logo_Horizontal.png" class="right-logo-img" alt="Splitgate 2 Logo">
+        </div>
+    </header>
+
+    <main> <!-- Main Content -->
+        <section class="hero-section">
+            <video class="hero-video" autoplay muted loop> <!-- Background Video -->
+                <source src="aeros_vbg.mp4" type="video/mp4">
+            </video>
+            <div class="video-overlay"></div>
+            <div class="hero-content"> <!-- Overlay Content -->
+                <img src="aeros_logo.png" class="faction-logo" alt="Aeros Logo">
+                <p>| WIN FAST |</p>
+            </div>
+        </section>
+
+        <div class="section-separator"></div> <!-- Section Divider -->
+
+        <section class="showcase-section"> <!-- Showcase Section -->
+            <img src="bg2.png" class="subfactions-bg" alt="Background"> <!-- Background Image -->
+            <div class="main-image-wrapper"> <!-- Main Image Wrapper -->
+                <img src="aeros_hero.png" class="showcase-main" alt="Aeros Main"> <!-- Main Image -->
+            </div>
+            <div class="right-content"> <!-- Right Content Section -->
+                <div class="right-content-item"> <!-- Right Content Item -->
+                    <div class="icon-container"> <!-- Icon Container -->
+                        <img src="aeros_icon.png" class="small-icon" alt="Aeros Icon"> <!-- Icon Image -->
+                    </div>
+                    <div class="text-group">
+                        <h3 class="item-title">LOOK GOOD, WIN OFTEN</h3>
+                        <p class="item-description">In any given match, anyone has a shot at winning. But winning with style? That's true skill. Become Aeros and know glory.</p>
+                    </div>
+                </div>
+                <div class="right-content-item">
+                    <div class="icon-container">
+                        <img src="aeros_planet.png" class="small-icon" alt="Aeros Planet">
+                    </div>
+                    <div class="text-group">
+                        <h3 class="item-title">EARTH</h3>
+                        <p class="item-description">Decades after the discovery of portal travel, Earth is a veritable paradise. Across the globe, humanity finds meaning in art, music and sport.</p>
+                    </div>
+                </div>
+                <div class="right-content-item">
+                    <div class="icon-container">
+                        <img src="aeros_passive.png" class="small-icon" alt="Aeros Passive">
+                    </div>
+                    <div class="text-group">
+                        <h3 class="item-title">PORTAL GRACE</h3>
+                        <p class="item-description">Dash across the arena, flying out of portals to surprise your opponents. Being quick, accurate, and nimble is what Aeros is all about.</p>
+                    </div>
+                </div>
+                <div class="right-content-item">
+                    <div class="icon-container">
+                        <img src="aeros_aces.png" class="small-icon" alt="Aeros Aces">
+                    </div>
+                    <div class="text-group">
+                        <h3 class="item-title">FAMOUS AEROS ACES</h3>
+                        <p class="item-description">Legendary Ace: Ricky Panache. Modern Aces: Bolt, Dart, Oni, Adoro, Alfa Elo.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="section-separator"></div> <!-- Section Divider -->
+
+        <section class="banner-section"> <!-- Banner Section -->
+            <img src="Aeros_banner_1.png" alt="Aeros Banner">
+            <img src="Aeros_banner_2.png" alt="Aeros Banner">
+        </section>
+
+        <div class="section-separator"></div>
+    </main>
+
+    <footer> <!-- Footer Section -->
+        <div class="footer-container">
+            <div class="footer-top">
+                <img src="Horizontal Logo.png" class="footer-logo" alt="Splitgate 2 Logo">
+            </div>
+            <div class="footer-center">
+                <p>© 2024 1047 Games, Inc. All rights reserved. Splitgate is a trademark and registered trademark of 1047 Games, Inc. in the USA and elsewhere. Persistent internet connection required. Age restrictions apply.</p>
+                <p class="footer-subtext">Website created by Labyrinth</p>
+            </div>
+            <div class="footer-bottom">
+                <div class="footer-bottom-left">
+                    <img src="A2_Logo.png" class="footer-logo" alt="Labyrinth Logo">
+                    <span class="brand-name">Labyrinth</span>
+                </div>
+                <img src="1047games_logo.png" alt="1047 Games Logo" class="footer-logo" />
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => { // Hamburger Menu
+            const hamburger = document.querySelector('.hamburger');
+            const navMenu = document.querySelector('.center-menu');
+
+            console.log('Hamburger:', hamburger);
+            console.log('Nav Menu:', navMenu);
+
+            if (!hamburger || !navMenu) {
+                console.error('Hamburger or navMenu not found. Check class names and HTML structure.');
+            } else {
+                const toggleMenu = () => {
+                    navMenu.classList.toggle('active');
+                    hamburger.setAttribute('aria-expanded', navMenu.classList.contains('active'));
+                };
+
+                hamburger.addEventListener('click', toggleMenu);
+                hamburger.addEventListener('touchstart', (e) => {
+                    e.preventDefault();
+                    toggleMenu();
+                });
+
+                navMenu.querySelectorAll('a').forEach(link => {
+                    link.addEventListener('click', () => {
+                        navMenu.classList.remove('active');
+                        hamburger.setAttribute('aria-expanded', 'false');
+                    });
+                });
+
+                window.addEventListener('resize', () => {
+                    if (window.innerWidth > 768 && navMenu.classList.contains('active')) {
+                        navMenu.classList.remove('active');
+                        hamburger.setAttribute('aria-expanded', 'false');
+                    }
+                });
+
+                hamburger.setAttribute('aria-expanded', 'false');
+                hamburger.setAttribute('tabindex', '0');
+                hamburger.addEventListener('keydown', (e) => {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        toggleMenu();
+                    }
+                });
+            }
+
+            const footer = document.querySelector('.footer-container'); // Footer Fade-Up Animation
+            if (footer) {
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('animate');
+                            observer.unobserve(entry.target);
+                        }
+                    });
+                }, { threshold: 0.1 });
+
+                observer.observe(footer);
+            } else {
+                console.error('Footer container not found.');
+            }
+        });
+    </script>
+</body>
+</html>

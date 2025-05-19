@@ -1,0 +1,126 @@
+.main-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: clamp(2rem, 5vw, 4rem) 4%;
+  max-width: 1400px;
+  margin: 0 auto;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+.text-section {
+  max-width: 600px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1rem;
+  flex: 1;
+  min-width: 280px;
+}
+
+.text-section h2 {
+  font-size: clamp(1.5rem, 4vw, 2rem);
+  letter-spacing: 1.5px;
+  font-weight: normal;
+  margin: 0;
+}
+
+.main-logo {
+  width: 100%;
+  max-width: 450px;
+  height: auto;
+  filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.3));
+}
+
+.text-section p {
+  font-size: clamp(1rem, 3vw, 1.25rem);
+  line-height: 1.6;
+  margin: 0;
+}
+
+.image-section {
+  flex: 1;
+  min-width: 280px;
+  display: flex;
+  justify-content: center;
+}
+
+.content-char {
+  width: 100%;
+  max-width: 450px;
+  height: auto;
+  filter: drop-shadow(0 0 15px rgba(0, 0, 0, 0.5));
+}
+
+/* Trailer Section */
+.trailer-section {
+  width: 100%;
+  margin: 0;
+  padding: clamp(2rem, 5vw, 3rem) 0;
+  min-height: 50vh;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.trailer-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+
+.trailer-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6));
+  z-index: 1;
+}
+
+.trailer-section > h2,
+.trailer-section > video {
+  position: relative;
+  z-index: 2;
+  padding: 0 4%;
+  box-sizing: border-box;
+}
+
+.trailer-section h2 {
+  font-size: clamp(1.5rem, 4vw, 2rem);
+  letter-spacing: 1.5px;
+  font-weight: normal;
+  margin-bottom: 1rem;
+}
+
+.trailer-section video {
+  width: 100%;
+  max-width: 1200px;
+  height: auto;
+  border-radius: 8px;
+  filter: drop-shadow(0 0 15px rgba(0, 0, 0, 0.5));
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .main-content {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .text-section {
+    max-width: 100%;
+  }
+
+  .trailer-section {
+    min-height: 40vh;
+  }
+}

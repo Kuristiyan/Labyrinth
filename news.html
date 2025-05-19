@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Labyrinth - News</title>
+    <link rel="stylesheet" href="shared.css">
+    <link rel="stylesheet" href="news.css">
+</head>
+<body>
+    <header> <!-- Header Section -->
+        <div class="header-container">
+            <a href = "index.html"><img src="A2_Logo.png" class="left-logo-img" alt="Labyrinth Logo"></a> <!-- Logo and Link to Homepage -->
+            <button class="hamburger" aria-label="Toggle navigation" tabindex="0">☰</button> <!-- Hamburger Menu Button -->
+            <nav class="center-menu">
+                <a href="factions.html">Factions</a> <!-- Link to Factions Page -->
+                <a href="news.html">News</a> <!-- Link to News Page -->
+                <a href="about.html">About</a> <!-- Link to About Page -->
+            </nav>
+            <img src="Rooster_Logo_Horizontal.png" class="right-logo-img" alt="Splitgate 2 Logo">
+        </div>
+    </header>
+
+    <main> <!-- Main Content -->
+        <section class="news-section"> <!-- News Section -->
+            <h2>NEWS</h2> <!-- News Header -->
+            <div class="news-grid"> <!-- News Grid -->
+                <div class="news-card"> <!-- News Card -->
+                    <img src="news1.jpg" class="news-image" alt="Splitgate 2 Open Beta">
+                    <h3>Open Beta Launches May 22, 2025!</h3> <!-- News Title -->
+                    <p>Get ready to portal into action! The Splitgate 2 open beta starts May 22, 2025, on PC, PS5, PS4, Xbox Series X|S, and Xbox One. Expect 25+ weapons, 10+ game modes, 15+ maps, and a teased “infinite maps” feature.</p> <!-- News Description -->
+                    <a href="https://www.splitgate.com/news/thanks-for-a-great-alpha-see-you-at-the-open-beta-in-may-2025" class="read-more" aria-label="Read more about Splitgate 2 open beta">Read More</a> <!-- Button and Read More Link -->
+                </div>
+                <div class="news-card">
+                    <img src="news2.png" class="news-image" alt="Splitgate 2 Release">
+                    <h3>Full Release Before November 2025</h3>
+                    <p>Splitgate 2’s full launch is set for Q3 2025, avoiding the busy Call of Duty season. The free-to-play shooter will bring monthly updates, new maps, and cosmetics to keep the action fresh.</p>
+                    <a href="https://x.com/Splitgate/status/1896354781163401714" class="read-more" aria-label="Read more about Splitgate 2 release">Read More</a>
+                </div>
+                <div class="news-card">
+                    <img src="news3.png" class="news-image" alt="New Game Modes">
+                    <h3>New Game Modes</h3>
+                    <p>Experience chaos in Splitgate 2’s Multi-Team Portal Warfare, featuring 8v8v8 battles on massive maps like Glacier, 20x larger than arena maps. Try modes like Firecracker and Spitball!</p>
+                    <a href="https://www.splitgate.com/news/play-the-splitgate2-open-alpha" class="read-more" aria-label="Read more about Splitgate 2 multi-team modes">Read More</a>
+                </div>
+                <div class="news-card">
+                    <img src="news4.jpg" class="news-image" alt="Beta Progress">
+                    <h3>Beta Progress Carries Over</h3>
+                    <p>Your open beta progress will transfer to the full game at launch. Jump into the May 22 beta to start earning rewards and mastering portals ahead of the summer release.</p>
+                    <a href="https://monstervine.com/2025/05/splitgate-2-post-launch-roadmap-revealed/#:~:text=Set%20to%20fully%20launch%20next,dig%20into%20all%20summer%20long." class="read-more" aria-label="Read more about Splitgate 2 beta progress">Read More</a>
+                </div>
+            </div>
+        </section>
+
+        <div class="section-separator"></div> <!-- Section Divider -->
+    </main>
+
+    <footer> <!-- Footer Section -->
+        <div class="footer-container">
+            <div class="footer-top">
+                <img src="Horizontal Logo.png" class="footer-logo" alt="Splitgate 2 Logo">
+            </div>
+            <div class="footer-center">
+                <p>© 2024 1047 Games, Inc. All rights reserved. Splitgate is a trademark and registered trademark of 1047 Games, Inc. in the USA and elsewhere. Persistent internet connection required. Age restrictions apply.</p>
+                <p class="footer-subtext">Website created by Labyrinth</p>
+            </div>
+            <div class="footer-bottom">
+                <div class="footer-bottom-left">
+                    <img src="A2_Logo.png" class="footer-logo" alt="Labyrinth Logo">
+                    <span class="brand-name">Labyrinth</span>
+                </div>
+                <img src="1047games_logo.png" alt="1047 Games Logo" class="footer-logo" />
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => { // Hamburger Menu
+            const hamburger = document.querySelector('.hamburger');
+            const navMenu = document.querySelector('.center-menu');
+
+            console.log('Hamburger:', hamburger);
+            console.log('Nav Menu:', navMenu);
+
+            if (!hamburger || !navMenu) {
+                console.error('Hamburger or navMenu not found. Check class names and HTML structure.');
+            } else {
+                const toggleMenu = () => {
+                    navMenu.classList.toggle('active');
+                    hamburger.setAttribute('aria-expanded', navMenu.classList.contains('active'));
+                };
+
+                hamburger.addEventListener('click', toggleMenu);
+                hamburger.addEventListener('touchstart', (e) => {
+                    e.preventDefault();
+                    toggleMenu();
+                });
+
+                navMenu.querySelectorAll('a').forEach(link => {
+                    link.addEventListener('click', () => {
+                        navMenu.classList.remove('active');
+                        hamburger.setAttribute('aria-expanded', 'false');
+                    });
+                });
+
+                window.addEventListener('resize', () => {
+                    if (window.innerWidth > 768 && navMenu.classList.contains('active')) {
+                        navMenu.classList.remove('active');
+                        hamburger.setAttribute('aria-expanded', 'false');
+                    }
+                });
+
+                hamburger.setAttribute('aria-expanded', 'false');
+                hamburger.setAttribute('tabindex', '0');
+                hamburger.addEventListener('keydown', (e) => {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        toggleMenu();
+                    }
+                });
+            }
+
+            const footer = document.querySelector('.footer-container'); // Footer Fade-Up Animation
+            if (footer) {
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('animate');
+                            observer.unobserve(entry.target);
+                        }
+                    });
+                }, { threshold: 0.1 });
+
+                observer.observe(footer);
+            } else {
+                console.error('Footer container not found.');
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Labyrinth - About</title>
+    <link rel="stylesheet" href="shared.css">
+    <link rel="stylesheet" href="about.css">
+</head>
+<body>
+    <header> <!-- Header Section -->
+        <div class="header-container"> 
+            <a href = "index.html"><img src="A2_Logo.png" class="left-logo-img" alt="abyrinth Logo"></a> <!-- Logo and Link to Homepage -->
+            <button class="hamburger" aria-label="Toggle navigation" tabindex="0">☰</button> <!-- Hamburger Menu Button -->
+            <nav class="center-menu">
+                <a href="factions.html">Factions</a> <!-- Link to Factions Page -->
+                <a href="news.html">News</a> <!-- Link to News Page -->
+                <a href="about.html">About</a> <!-- Link to About Page -->
+            </nav>
+            <img src="Rooster_Logo_Horizontal.png" class="right-logo-img" alt="Splitgate 2 Logo">
+        </div>
+    </header>
+
+    <main> <!-- Main Content -->
+        <section class="about-section"> <!-- About Section -->
+            <h2>ABOUT THE WEBSITE</h2> <!-- Section Title -->
+            <div class="about-grid"> <!-- About Grid -->
+                <div class="about-card"> <!-- Labyrinth Card -->
+                    <img src="A2_Logo.png" class="about-image" alt="Labyrinth"> <!-- Topic Image -->
+                    <h3>Labyrinth</h3> <!-- Topic Title -->
+                    <p>Labyrinth is your trusted source for gaming news and updates. This website highlights the latest details about the games we love, starting with Splitgate 2. Stay tuned for more exciting content!</p> <!-- Topic Description -->
+                </div>
+                <div class="about-card">
+                    <img src="splitgate_full.jpg" class="about-image" alt="Splitgate 2">
+                    <h3>Splitgate 2</h3>
+                    <p>Splitgate 2 is a free-to-play, fast-paced FPS by 1047 Games, built in Unreal Engine 5. Portal across dynamic arenas with 25+ weapons, 10+ modes, and 15+ maps. The open beta launches May 22, 2025, with a full release in Q3 2025. Create custom maps with A map editor tool for creating custom game maps, The Lab, and dominate as an elite Ace!</p>
+                    <a href="https://www.splitgate.com" class="learn-more" aria-label="Learn more about Splitgate 2">Learn More</a>
+                </div>
+                <div class="about-card">
+                    <img src="1047games_logo_full.png" class="about-image" alt="1047 Games">
+                    <h3>1047 Games</h3>
+                    <p>1047 Games was founded by Stanford graduates Ian Proulx and Nicholas Bagamian as a dorm-room project.</p>
+                    <p>Their hit game, Splitgate, has been downloaded over 10 million times.</p>
+                    <p>With a team of over 100 members, they are now developing Splitgate 2, a AAA shooter that aims to redefine competitive FPS with portals and innovative gameplay.</p>
+                    <a href="https://x.com/1047games" class="learn-more" aria-label="Learn more about 1047 Games">Learn More</a>
+                </div>
+            </div>
+        </section>
+
+        <div class="section-separator"></div> <!-- Section Divider -->
+    </main>
+
+    <footer> <!-- Footer Section -->
+        <div class="footer-container">
+            <div class="footer-top">
+                <img src="Horizontal Logo.png" class="footer-logo" alt="Splitgate 2 Logo">
+            </div>
+            <div class="footer-center">
+                <p>© 2024 1047 Games, Inc. All rights reserved. Splitgate is a trademark and registered trademark of 1047 Games, Inc. in the USA and elsewhere. Persistent internet connection required. Age restrictions apply.</p>
+                <p class="footer-subtext">Website created by Labyrinth</p>
+            </div>
+            <div class="footer-bottom">
+                <div class="footer-bottom-left">
+                    <img src="A2_Logo.png" class="footer-logo" alt="Labyrinth Logo">
+                    <span class="brand-name">Labyrinth</span>
+                </div>
+                <img src="1047games_logo.png" alt="1047 Games Logo" class="footer-logo" />
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => { // Hamburger Menu
+            const hamburger = document.querySelector('.hamburger');
+            const navMenu = document.querySelector('.center-menu');
+
+            console.log('Hamburger:', hamburger);
+            console.log('Nav Menu:', navMenu);
+
+            if (!hamburger || !navMenu) {
+                console.error('Hamburger or navMenu not found. Check class names and HTML structure.');
+            } else {
+                const toggleMenu = () => {
+                    navMenu.classList.toggle('active');
+                    hamburger.setAttribute('aria-expanded', navMenu.classList.contains('active'));
+                };
+
+                hamburger.addEventListener('click', toggleMenu);
+                hamburger.addEventListener('touchstart', (e) => {
+                    e.preventDefault();
+                    toggleMenu();
+                });
+
+                navMenu.querySelectorAll('a').forEach(link => {
+                    link.addEventListener('click', () => {
+                        navMenu.classList.remove('active');
+                        hamburger.setAttribute('aria-expanded', 'false');
+                    });
+                });
+
+                window.addEventListener('resize', () => {
+                    if (window.innerWidth > 768 && navMenu.classList.contains('active')) {
+                        navMenu.classList.remove('active');
+                        hamburger.setAttribute('aria-expanded', 'false');
+                    }
+                });
+
+                hamburger.setAttribute('aria-expanded', 'false');
+                hamburger.setAttribute('tabindex', '0');
+                hamburger.addEventListener('keydown', (e) => {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        toggleMenu();
+                    }
+                });
+            }
+
+            const footer = document.querySelector('.footer-container'); // Footer Fade-Up Animation
+            if (footer) {
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('animate');
+                            observer.unobserve(entry.target);
+                        }
+                    });
+                }, { threshold: 0.1 });
+
+                observer.observe(footer);
+            } else {
+                console.error('Footer container not found.');
+            }
+        });
+    </script>
+</body>
+</html>

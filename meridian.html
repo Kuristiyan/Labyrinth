@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Factions - Sabrask</title>
+    <link rel="stylesheet" href="shared.css">
+    <link rel="stylesheet" href="subfactions.css">
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <a href = "index.html"><img src="A2_Logo.png" class="left-logo-img" alt="Labyrinth Logo"></a>
+            <button class="hamburger" aria-label="Toggle navigation" tabindex="0">☰</button>
+            <nav class="center-menu">
+                <a href="factions.html">Factions</a>
+                <a href="news.html">News</a>
+                <a href="about.html">About</a>
+            </nav>
+            <img src="Rooster_Logo_Horizontal.png" class="right-logo-img" alt="Splitgate 2 Logo">
+        </div>
+    </header>
+
+    <main>
+        <section class="hero-section">
+            <video class="hero-video" autoplay muted loop>
+                <source src="meridian_vbg.mp4" type="video/mp4">
+            </video>
+            <div class="video-overlay"></div>
+            <div class="hero-content">
+                <img src="meridian_logo.png" class="faction-logo" alt="Meridian Logo">
+                <p>|  WORK HARD, PLAY SMART  |</p>
+            </div>
+        </section>
+
+        <div class="section-separator"></div>
+
+        <section class="showcase-section">
+            <img src="bg3.png" class="subfactions-bg" alt="Background">
+            <div class="main-image-wrapper">
+                <img src="meridian_hero.png" class="showcase-main" alt="Meridian Main">
+            </div>
+            <div class="right-content">
+                <div class="right-content-item">
+                    <div class="icon-container">
+                        <img src="meridian_icon.png" class="small-icon" alt="Meridian Icon">
+                    </div>
+                    <div class="text-group">
+                        <h3 class="item-title">PERFECTION REQUIRES DEDICATION</h3>
+                        <p class="item-description">In a future where the impossible has become possible, one faction still wants to push boundaries of reality even further: Meridian.</p>
+                    </div>
+                </div>
+                <div class="right-content-item">
+                    <div class="icon-container">
+                        <img src="meridian_planet.png" class="small-icon" alt="Meridian Planet">
+                    </div>
+                    <div class="text-group">
+                        <h3 class="item-title">VENUS</h3>
+                        <p class="item-description">Sparkling space spires, domed utopias, and underground cybernetic facilities are only possible on this harsh world thanks to Meridian's advanced tech.</p>
+                    </div>
+                </div>
+                <div class="right-content-item">
+                    <div class="icon-container">
+                        <img src="meridian_passive.png" class="small-icon" alt="MeridianPassive">
+                    </div>
+                    <div class="text-group">
+                        <h3 class="item-title">PRECISE SUPPORT</h3>
+                        <p class="item-description">Strategize with the most advanced tech in Sol. The support Meridian provides makes them an essential part of a winning team.</p>
+                    </div>
+                </div>
+                <div class="right-content-item">
+                    <div class="icon-container">
+                        <img src="meridian_aces.png" class="small-icon" alt="Meridian Aces">
+                    </div>
+                    <div class="text-group">
+                        <h3 class="item-title">FAMOUS MERIDIAN ACES</h3>
+                        <p class="item-description">Legendary Ace: Proto. Modern Aces: Mira, Phaze, Shinji, Phascia, Ryokō-sha.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="section-separator"></div>
+
+        <section class="banner-section">
+            <img src="meridian_banner_1.png" alt="Meridian Banner">
+            <img src="meridian_banner_2.png" alt="Meridian Banner">
+        </section>
+
+        <div class="section-separator"></div>
+    </main>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-top">
+                <img src="Horizontal Logo.png" class="footer-logo" alt="Splitgate 2 Logo">
+            </div>
+            <div class="footer-center">
+                <p>© 2024 1047 Games, Inc. All rights reserved. Splitgate is a trademark and registered trademark of 1047 Games, Inc. in the USA and elsewhere. Persistent internet connection required. Age restrictions apply.</p>
+                <p class="footer-subtext">Website created by Labyrinth</p>
+            </div>
+            <div class="footer-bottom">
+                <div class="footer-bottom-left">
+                    <img src="A2_Logo.png" class="footer-logo" alt="Labyrinth Logo">
+                    <span class="brand-name">Labyrinth</span>
+                </div>
+                <img src="1047games_logo.png" alt="1047 Games Logo" class="footer-logo" />
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => { // Hamburger Menu
+            const hamburger = document.querySelector('.hamburger');
+            const navMenu = document.querySelector('.center-menu');
+
+            console.log('Hamburger:', hamburger);
+            console.log('Nav Menu:', navMenu);
+
+            if (!hamburger || !navMenu) {
+                console.error('Hamburger or navMenu not found. Check class names and HTML structure.');
+            } else {
+                const toggleMenu = () => {
+                    navMenu.classList.toggle('active');
+                    hamburger.setAttribute('aria-expanded', navMenu.classList.contains('active'));
+                };
+
+                hamburger.addEventListener('click', toggleMenu);
+                hamburger.addEventListener('touchstart', (e) => {
+                    e.preventDefault();
+                    toggleMenu();
+                });
+
+                navMenu.querySelectorAll('a').forEach(link => {
+                    link.addEventListener('click', () => {
+                        navMenu.classList.remove('active');
+                        hamburger.setAttribute('aria-expanded', 'false');
+                    });
+                });
+
+                window.addEventListener('resize', () => {
+                    if (window.innerWidth > 768 && navMenu.classList.contains('active')) {
+                        navMenu.classList.remove('active');
+                        hamburger.setAttribute('aria-expanded', 'false');
+                    }
+                });
+
+                hamburger.setAttribute('aria-expanded', 'false');
+                hamburger.setAttribute('tabindex', '0');
+                hamburger.addEventListener('keydown', (e) => {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        toggleMenu();
+                    }
+                });
+            }
+
+            const footer = document.querySelector('.footer-container'); // Footer Fade-Up Animation
+            if (footer) {
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('animate');
+                            observer.unobserve(entry.target);
+                        }
+                    });
+                }, { threshold: 0.1 });
+
+                observer.observe(footer);
+            } else {
+                console.error('Footer container not found.');
+            }
+        });
+    </script>
+</body>
+</html>
